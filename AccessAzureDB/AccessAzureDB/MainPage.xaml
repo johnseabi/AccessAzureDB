@@ -3,12 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:AccessAzureDB"
              x:Class="AccessAzureDB.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ContentPage.Content>
+        <ScrollView>
+            <ListView x:Name="list" BindingContext="{Binding .}"
+                      BackgroundColor="WhiteSmoke">
+                <ListView.RowHeight>
+                    <OnPlatform x:TypeArguments="x:Int32"
+                                iOS="80"
+                                Android ="80"/>
+                </ListView.RowHeight>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView Padding="2">
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="St. Num: "></Label>
+                                        <Label Text="{Binding StudentNumber}"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Full Name: "></Label>
+                                        <Label Text="{Binding FullName}"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Module: "></Label>
+                                        <Label Text="{Binding Module}"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Campus: "></Label>
+                                        <Label Text="{Binding Campus}"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Phone: "></Label>
+                                        <Label Text="{Binding Phone}"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Contact Mode: "></Label>
+                                        <Label Text="{Binding ContactMode}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </ContentPage.Content>
 
 </ContentPage>
