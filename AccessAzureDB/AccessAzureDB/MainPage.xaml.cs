@@ -21,7 +21,7 @@ namespace AccessAzureDB
         {
             InitializeComponent();
 
-            listOfStudents = Getstudents();
+            listOfStudents = GetStudents();
             //Sample code
             list.FindByName<Xamarin.Forms.ListView>("list");
 
@@ -47,7 +47,7 @@ namespace AccessAzureDB
             public string Phone { get; set; }
             public string ContactMode { get; set; }
         }
-        static List<PoorPerformingStudent> Getstudents()
+        static List<PoorPerformingStudent> GetStudents()
         {
             try
             {
@@ -59,10 +59,9 @@ namespace AccessAzureDB
 
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
-
                     StringBuilder sb = new StringBuilder();
                     sb.Append("SELECT TOP (1000) [StudentNumber],[FullNames],[Modules],[Campus] ,[ContactNumber],[ContactMode]FROM[dbo].[PoorPerformingStudent]");
-                    String sql = sb.ToString();
+                    string sql = sb.ToString();
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -79,7 +78,7 @@ namespace AccessAzureDB
             }
             catch (SqlException e)
             {
-
+                throw new Exception("Error Connecting to Database");
             }
             return listOfStudents;
         }

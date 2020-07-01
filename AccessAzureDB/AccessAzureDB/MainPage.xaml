@@ -9,8 +9,8 @@
                       BackgroundColor="WhiteSmoke">
                 <ListView.RowHeight>
                     <OnPlatform x:TypeArguments="x:Int32"
-                                iOS="80"
-                                Android ="80"/>
+                                iOS="200"
+                                Android ="200"/>
                 </ListView.RowHeight>
                 <ListView.ItemTemplate>
                     <DataTemplate>
